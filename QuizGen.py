@@ -18,6 +18,7 @@ def quiz(number_of_questions):
 	print("You will be asked " + str(number_of_questions) + " questions. Good Luck!")
 	while number_of_questions_done < number_of_questions:
 		current_question = random.randint(-1, len(questions)-1)
+		# pick a question at random
 		if current_question in questions_printed:
 			# if the randomly selected question has already been asked then find a different questions to ask. 
 			continue
