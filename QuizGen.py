@@ -2,7 +2,7 @@
 # Code Writen by JbCoder (GitHub)
 # Contributions to this code are welcome! Go to https://github.com/JbCoder/PyQuiz
 # Make sure to add your GitHub username to the contributors.txt file.
-import random, os
+import random, os, click
 def quiz(number_of_questions):
 	# setup
 	number_of_questions_done = 0
@@ -33,6 +33,11 @@ def quiz(number_of_questions):
 				print("Incorrect!")
 			number_of_questions_done += 1
 	print("You scored " + str(score) + "/" + str(number_of_questions))
+	if click.confirm('Do you want to save your score?', default=True):
+		name = input("Please type a sensible nickname: ")
+		j = open("Scores.txt", "w")
+		j.write(name + " : " + str(score) + "/" + str(number_of_questions) + "\n")
+		print("Score Added!")
 	os.system("pause")
 	#print(questions)
 	#print(answers)	
