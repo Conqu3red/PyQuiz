@@ -35,7 +35,7 @@ def quiz(number_of_questions):
 	print("You scored " + str(score) + "/" + str(number_of_questions))
 	if click.confirm('Do you want to save your score?', default=True):
 		name = input("Please type a sensible nickname: ")
-		j = open("Scores.txt", "w")
+		j = open("Scores.txt", "a")
 		j.write(name + " : " + str(score) + "/" + str(number_of_questions) + "\n")
 		print("Score Added!")
 	os.system("pause")
