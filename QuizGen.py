@@ -3,6 +3,7 @@
 # Contributions to this code are welcome! Go to https://github.com/JbCoder/PyQuiz
 # Make sure to add your GitHub username to the contributors.txt file.
 import random, os
+# setup
 c = 0
 score = 0
 number_of_questions = 6
