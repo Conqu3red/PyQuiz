@@ -5,18 +5,18 @@
 import random, os, click
 def quiz(number_of_questions):
 	# setup
-	number_of_questions_done = 0
+	questions_completed = 0
 	score = 0
 	questions_printed = []
-	i = open("Questions.txt", "r")
-	i = i.read()
-	lines = i.split("\n")
+	q_and_a = open("Questions.txt", "r")
+	q_and_a = q_and_a.read()
+	lines = q_and_a.split("\n")
 	questions = lines[::2]
 	total_questions = len(questions)
 	answers = lines[1::2]
 	print("Quiz Generated!")
 	print("You will be asked " + str(number_of_questions) + " questions. Good Luck!")
-	while number_of_questions_done < number_of_questions:
+	while questions_completed < number_of_questions:
 		current_question = random.randint(-1, len(questions)-1)
 		# pick a question at random
 		if current_question in questions_printed:
@@ -31,12 +31,12 @@ def quiz(number_of_questions):
 				score += 1
 			else:
 				print("Incorrect!")
-			number_of_questions_done += 1
+			questions_completed += 1
 	print("You scored " + str(score) + "/" + str(number_of_questions))
 	if click.confirm('Do you want to save your score?', default=True):
 		name = input("Please type a sensible nickname: ")
-		j = open("Scores.txt", "a")
-		j.write(name + " : " + str(score) + "/" + str(number_of_questions) + "\n")
+		scorefile = open("Scores.txt", "a")
+		scorefile.write(name + " : " + str(score) + "/" + str(number_of_questions) + "\n")
 		print("Score Added!")
 	os.system("pause")
 	#print(questions)
